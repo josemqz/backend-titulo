@@ -22,12 +22,16 @@ def init_app():
 
     with app.app_context():
 
+        # crear tablas en BD
         from src.models.models import Sala, Ocupacion
+        from src.salas import routes as salas_routes
+        from src.ocupaciones import routes as ocupaciones_routes
         
         db.create_all()
 
-        # if ENV.first:
-        # from src.database.poblar_db import poblar
-        # poblar()
+        # poblar tabla de salas, en caso de estar vacía
+        if len(Sala.query.all()) <= 0:
+            from src.database.poblar_db import poblar
+            poblar()
 
         return app
