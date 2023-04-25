@@ -1,16 +1,22 @@
 # backend-titulo
-Backend de sitio web diseñado para visualizar los resultados de Crowd Counting en el campus San Joaquín de la Universidad Técnica Federico Santa María
+Backend de sitio web diseñado para visualizar los resultados de Crowd Counting en el campus San Joaquín de la Universidad Técnica Federico Santa María.  
+
 
 ## Instrucciones
 
-### Ingresar a entorno virtual
+### Crear e ingresar a entorno virtual
 
 Instalar módulo de entornos virtuales  
 ```
 sudo apt update  
 sudo apt install python3-venv
 ```  
-  
+
+Crear entorno virtual  
+```
+python3 -m venv backend-env
+```
+
 Activar entorno  
 ```
 source ./backend_env/bin/activate
@@ -20,6 +26,11 @@ Desactivar entorno
 ```
 deactivate
 ```  
+
+### Instalar librerías requeridas
+```
+python3 -m pip install -r requirements.txt
+```
 
 ### Ejecutar servidor
 ```
@@ -61,9 +72,9 @@ from src import db
 db.drop_all()
 ```
 
-### Operaciones definidas en server  
+### Operaciones definidas en server
 
-## Sala
+#### Sala
 ```
 from src.models.models import Sala  
   
@@ -73,7 +84,7 @@ Sala.get_sala_by_id(id)
 Sala.get_sala_by_nombre(nombre)
 ```
 
-## Ocupación
+#### Ocupación
 ```
 from src.models.models import Ocupacion  
   
