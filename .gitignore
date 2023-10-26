@@ -18,6 +18,7 @@ coverage
 /cypress/screenshots/
 
 __pycache__
+database/campus_occupancy.db
 models/__pycache__
 ocupaciones/__pycache__
 salas/__pycache__

@@ -7,12 +7,10 @@ from src.models.models import Ocupacion
 def get_ocupaciones():
     return Ocupacion.get_ocupaciones() 
 
-"""
 # Obtener info de últimas ocupaciones de todas las salas
 @app.route('/ult_ocupaciones', methods=['GET'])
 def get_ultimas_ocupaciones():
     return Ocupacion.get_ultimas_ocupaciones() 
-"""
 
 # Obtener info de ocupaciones de una sala específica
 @app.route('/ocupaciones/<int:sala_id>', methods=['GET'])

@@ -94,20 +94,24 @@ class Ocupacion(db.Model):
                  'timestamp': oc.timestamp}
                 for oc in ocupaciones])
     
-    """
     # retornar lista con última ocupación de cada sala que cuente con una
     @staticmethod
     def get_ultimas_ocupaciones():
 
         # en este caso, se ordena por id de forma decreciente, con tal de obtener el último registro
-        ocupaciones = Ocupacion.order_by(-Ocupacion.id).first()
+        # de cada grupo de ocupaciones por sala
+        query = db.session.query(func.max(Ocupacion.id),
+                                Ocupacion.sala_id, 
+                                Ocupacion.ocupacion_actual, 
+                                Ocupacion.timestamp).\
+                            group_by(Ocupacion.sala_id).all()
+        print("query:", query)
 
-        return jsonify([{'id': oc.id, 
-                        'sala_id': oc.sala_id, 
-                        'ocupacion_actual': oc.ocupacion_actual,
-                        'timestamp': oc.timestamp}
-                        for oc in ocupaciones])
-    """
+        return jsonify([{'id': oc[0], 
+                        'sala_id': oc[1], 
+                        'ocupacion_actual': oc[2],
+                        'timestamp': oc[3]}
+                        for oc in query])
     
     @staticmethod
     def get_ocupaciones_by_sala_id(sala_id):
