@@ -69,19 +69,18 @@ class Ocupacion(db.Model):
     timestamp = db.Column(db.DateTime(timezone=True),
                            server_default=func.now())
     
-    def __init__(self, sala_id: int, ocupacion_actual: int, timestamp: datetime):
+    def __init__(self, sala_id: int, ocupacion_actual: int):
         self.sala_id = sala_id
         self.ocupacion_actual = ocupacion_actual
         # FIX: está en otro formato, que en verdad no es terrible, pero está en GMT (Greenwich)
-        if self.timestamp != None:
-            self.timestamp = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%S.%fZ')
+        self.timestamp = datetime.now()#.strftime('%Y-%m-%dT%H:%M:%S.%fZ')
 
     def __repr__(self):
         return '<Ocupacion: %r [Sala %r] (%r)>' % (self.ocupacion_actual, self.sala_id, self.timestamp)
 
     @staticmethod
-    def crear(sala_id, ocupacion_actual, timestamp):
-        nueva_ocupacion = Ocupacion(sala_id, ocupacion_actual, timestamp)
+    def crear(sala_id, ocupacion_actual):
+        nueva_ocupacion = Ocupacion(sala_id, ocupacion_actual)
         db.session.add(nueva_ocupacion)
         db.session.commit()
 

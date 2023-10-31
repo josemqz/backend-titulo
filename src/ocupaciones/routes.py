@@ -26,17 +26,15 @@ def get_ultima_ocupacion_by_sala_id(sala_id):
 @app.route('/ocupacion', methods=['POST'])
 def add_ocupacion():
 
-    sala_id = request.args.get('sala_id')
-    ocupacion_actual = request.args.get('ocupacion_actual')
-    timestamp = request.args.get('timestamp')
+    sala_id = request.form.get('sala_id')
+    ocupacion_actual = request.form.get('ocupacion_actual')
 
-    # try:
-    Ocupacion.crear(sala_id, ocupacion_actual, timestamp)
-    return "OK"
-        # return "OK"
-    # except:
-        # print("Error al añadir dato a tabla Ocupaciones")
-        # return "Database Error"
+    try:
+        Ocupacion.crear(sala_id, ocupacion_actual)
+        return "OK"
+    except:
+        print("Error al añadir dato a tabla Ocupaciones")
+        return "Database Error"
 
 @app.route('/ocupacion/<int:id>', methods=['DELETE'])
 def delete_ocupacion(id):
