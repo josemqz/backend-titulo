@@ -89,7 +89,7 @@ def poblar():
     Sala.crear(svg_id="rect5073",   nombre="A-013",             ocupacion_max =42)
     Sala.crear(svg_id="rect5071",   nombre="A-014",             ocupacion_max =42)
     Sala.crear(svg_id="rect5069",   nombre="A-015",             ocupacion_max =42)
-    Sala.crear(svg_id="rect4905",   nombre="A-016",             ocupacion_max =99)
+    Sala.crear(svg_id="rect4905",   nombre="A-016",             ocupacion_max =99) #16
     Sala.crear(svg_id="rect954-9",  nombre="A-017",             ocupacion_max =50)
     Sala.crear(svg_id="rect4725",   nombre="B-001",             ocupacion_max =56)
     Sala.crear(svg_id="rect4672-1",  nombre="B-002",            ocupacion_max =56)
@@ -105,9 +105,9 @@ def poblar():
     Sala.crear(svg_id="rect4541",    nombre="B-012",            ocupacion_max =50)
     Sala.crear(svg_id="rect5195",    nombre="B-015",            ocupacion_max =50)
     Sala.crear(svg_id="rect5197",    nombre="B-016",            ocupacion_max =50)
-    Sala.crear(svg_id="rect5002",   nombre="Oficinas Primos",   ocupacion_max =20)
+    Sala.crear(svg_id="rect5002",   nombre="Oficinas Primos",   ocupacion_max =20) #32
     Sala.crear(svg_id="rect5026",   nombre="Sala Reuniones",    ocupacion_max =20)
-    Sala.crear(svg_id="rect4746",   nombre="LDS",               ocupacion_max =100)
+    Sala.crear(svg_id="rect4746",   nombre="LDS",               ocupacion_max =100) #34
     Sala.crear(svg_id="path5040",   nombre="Noac Frontal",      ocupacion_max =200)
     Sala.crear(svg_id="rect4780",   nombre="Arquitectura 1",    ocupacion_max =100)
     Sala.crear(svg_id="rect4780-3", nombre="Auditorio",         ocupacion_max =300)
@@ -155,3 +155,4 @@ def poblar():
     Sala.crear(svg_id="path1035", nombre="Testamento",           ocupacion_max =300)
     Sala.crear(svg_id="rect1056", nombre="Don Fede",             ocupacion_max =80)
     Sala.crear(svg_id="rect211",  nombre="Aula Magna",           ocupacion_max =100)
+    Sala.crear(svg_id="rect1439",  nombre="Oficina FabLab",      ocupacion_max =10) #71

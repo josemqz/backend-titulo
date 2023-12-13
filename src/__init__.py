@@ -29,6 +29,9 @@ def init_app():
         
         db.create_all()
 
+        # limpiar tabla
+        # Sala.query.delete()
+
         # poblar tabla de salas, en caso de estar vacía
         if len(Sala.query.all()) <= 0:
             from src.database.poblar_db import poblar
